@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="pet_project:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pet_project_jar</output-path>
+    <root id="root">
+      <element id="archive" name="pet_project.jar">
+        <element id="module-output" name="pet_project" />
+      </element>
+      <element id="library" level="project" name="Downloads" />
+      <element id="library" level="project" name="htmlunit-2.15-OSGi" />
+      <element id="library" level="project" name="src" />
+      <element id="dir-copy" path="$PROJECT_DIR$/img" />
+    </root>
+  </artifact>
+</component>
