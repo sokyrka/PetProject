@@ -1,17 +1,18 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
 import java.awt.event.*;
-
 /**
  * Created by quattro on 17.12.2014.
  */
 public class EnterValuePanel extends JPanel {
 
-    static private double cabinetWidth;
-    static private double cabinetHeight;
-    static private double cabinetDepth;
-    static private double insideTemperature;
-    static private double outsideTemperature;
-    static private double dissipationPower;
+    private double cabinetWidth;
+    private double cabinetHeight;
+    private double cabinetDepth;
+    private double insideTemperature;
+    private double outsideTemperature;
+    private double dissipationPower;
 
     public void setCabinetWidth(double width){
         this.cabinetWidth = width;
@@ -62,7 +63,10 @@ public class EnterValuePanel extends JPanel {
     }
 
     EnterValuePanel(){
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setPreferredSize(new Dimension(150, 100));
+        //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setBorder(new LineBorder(Color.red));
+
 
         final JTextField textFieldWidth = new JTextField("Enter Width", 12);
         add(textFieldWidth);
