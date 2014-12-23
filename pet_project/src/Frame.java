@@ -21,10 +21,13 @@ public class Frame extends JFrame {
 
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
-        JMenu fileMenuHelp = new JMenu("Справка");
-        menuBar.add(fileMenuHelp);
-        JMenu fileMenuAbout = new JMenu("О программе");
-        menuBar.add(fileMenuAbout);
+
+        JMenu menuHelp = new JMenu("Посмотреть справку");
+        menuBar.add(menuHelp);
+
+        JMenu menuAbout = new JMenu("О программе");
+        menuBar.add(menuAbout);
+
 
         final RadioButtonPanel radioButtonPanel = new RadioButtonPanel();
         getContentPane().add(BorderLayout.EAST, radioButtonPanel);
@@ -40,6 +43,7 @@ public class Frame extends JFrame {
 
         final JButton button = new JButton("Рассчитать");
         getContentPane().add(BorderLayout.SOUTH, button);
+
 
         button.addActionListener(new ActionListener() {
             @Override
