@@ -7,12 +7,12 @@ import java.awt.event.*;
  */
 public class EnterValuePanel extends JPanel {
 
-    private double cabinetWidth;
-    private double cabinetHeight;
-    private double cabinetDepth;
-    private double insideTemperature;
-    private double outsideTemperature;
-    private double dissipationPower;
+    private static double cabinetWidth;
+    private static double cabinetHeight;
+    private static double cabinetDepth;
+    private static double insideTemperature;
+    private static double outsideTemperature;
+    private static double dissipationPower;
 
     public void setCabinetWidth(double width){
         this.cabinetWidth = width;
@@ -63,27 +63,58 @@ public class EnterValuePanel extends JPanel {
     }
 
     EnterValuePanel(){
-        setPreferredSize(new Dimension(150, 100));
+
+        setPreferredSize(new Dimension(210, 100));
+        setLayout(new FlowLayout(FlowLayout.LEFT));
         //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBorder(new LineBorder(Color.red));
+        //setBorder(new LineBorder(Color.red));
 
+        JLabel labelWidth = new JLabel("Ширина шкафа");
+        labelWidth.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
+        add(labelWidth);
 
-        final JTextField textFieldWidth = new JTextField("Enter Width", 12);
+        final JTextField textFieldWidth = new JTextField("0", 6);
+        textFieldWidth.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
         add(textFieldWidth);
 
-        final JTextField textFieldHeight = new JTextField("Enter Height", 12);
+        JLabel labelHeight = new JLabel("Высота шкафа");
+        labelHeight.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
+        add(labelHeight);
+
+        final JTextField textFieldHeight = new JTextField("0", 6);
+        textFieldHeight.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
         add(textFieldHeight);
 
-        final JTextField textFieldDepth = new JTextField("Enter Depth", 12);
+        JLabel labelDepth = new JLabel("Глубина шкафа");
+        labelDepth.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
+        add(labelDepth);
+
+        final JTextField textFieldDepth = new JTextField("0", 6);
+        textFieldDepth.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
         add(textFieldDepth);
 
-        final JTextField textFieldInsideTemperature = new JTextField("Enter inside temperature", 12);
+        JLabel labelInsideTemperature = new JLabel("Внутренняя температура");
+        labelInsideTemperature.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
+        add(labelInsideTemperature);
+
+        final JTextField textFieldInsideTemperature = new JTextField("0", 6);
+        textFieldInsideTemperature.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
         add(textFieldInsideTemperature);
 
-        final JTextField textFieldOutsideTemperature = new JTextField("Enter outside temperature", 12);
+        JLabel labelOutsideTemperature = new JLabel("Внешняя температура");
+        labelOutsideTemperature.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
+        add(labelOutsideTemperature);
+
+        final JTextField textFieldOutsideTemperature = new JTextField("0", 6);
+        textFieldOutsideTemperature.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
         add(textFieldOutsideTemperature);
 
-        final JTextField textFieldDissipationPower = new JTextField("Enter power", 12);
+        JLabel labelPower = new JLabel("Рассеиваемая мощность");
+        labelPower.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
+        add(labelPower);
+
+        final JTextField textFieldDissipationPower = new JTextField("0", 6);
+        textFieldDissipationPower.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
         add(textFieldDissipationPower);
 
 
@@ -96,7 +127,7 @@ public class EnterValuePanel extends JPanel {
             @Override
             public void focusLost(FocusEvent e) {
                 if(textFieldWidth.getText().equals("")){
-                    textFieldWidth.setText("Enter Width");
+                    textFieldWidth.setText("0");
                 }
                 else{
                     try{
@@ -118,7 +149,7 @@ public class EnterValuePanel extends JPanel {
             @Override
             public void focusLost(FocusEvent e) {
                 if(textFieldHeight.getText().equals("")) {
-                    textFieldHeight.setText("Enter Height");
+                    textFieldHeight.setText("0");
                 }
                 else{
                     try{
@@ -139,7 +170,7 @@ public class EnterValuePanel extends JPanel {
             @Override
             public void focusLost(FocusEvent e) {
                 if(textFieldDepth.getText().equals("")) {
-                    textFieldDepth.setText("Enter Depth");
+                    textFieldDepth.setText("0");
                 }
                 else{
                     try{
@@ -160,7 +191,7 @@ public class EnterValuePanel extends JPanel {
             @Override
             public void focusLost(FocusEvent e) {
                 if(textFieldInsideTemperature.getText().equals("")){
-                    textFieldInsideTemperature.setText("Enter inside temperature");
+                    textFieldInsideTemperature.setText("0");
                 }
                 else{
                     try{
@@ -182,7 +213,7 @@ public class EnterValuePanel extends JPanel {
             @Override
             public void focusLost(FocusEvent e) {
                 if(textFieldOutsideTemperature.getText().equals("")) {
-                    textFieldOutsideTemperature.setText("Enter outside temperature");
+                    textFieldOutsideTemperature.setText("0");
                 }
                 else{
                     try{
@@ -203,7 +234,7 @@ public class EnterValuePanel extends JPanel {
             @Override
             public void focusLost(FocusEvent e) {
                 if(textFieldDissipationPower.getText().equals("")) {
-                    textFieldDissipationPower.setText("Enter Power");
+                    textFieldDissipationPower.setText("0");
                 }
                 else{
                     try{

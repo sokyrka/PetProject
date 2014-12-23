@@ -80,18 +80,21 @@ public class RadioButtonPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("1")){
             cabinetSquare = 1.8 * enterValuePanel.getCabinetHeight() * (enterValuePanel.getCabinetWidth() + enterValuePanel.getCabinetDepth()) + 1.4 * enterValuePanel.getCabinetWidth() * enterValuePanel.getCabinetDepth();
-        }if(e.getActionCommand().equals("2")){
+        }else if(e.getActionCommand().equals("2")){
             cabinetSquare = 1.4 * enterValuePanel.getCabinetWidth() * (enterValuePanel.getCabinetHeight() + enterValuePanel.getCabinetDepth()) + 1.8 * enterValuePanel.getCabinetDepth() * enterValuePanel.getCabinetHeight();
-        }if(e.getActionCommand().equals("3")){
+        }else if(e.getActionCommand().equals("3")){
             cabinetSquare = 1.4 * enterValuePanel.getCabinetDepth() * (enterValuePanel.getCabinetHeight() + enterValuePanel.getCabinetWidth()) + 1.8 * enterValuePanel.getCabinetWidth() * enterValuePanel.getCabinetHeight();
-        }if(e.getActionCommand().equals("4")){
+        }else if(e.getActionCommand().equals("4")){
             cabinetSquare = 1.4 * enterValuePanel.getCabinetHeight() * (enterValuePanel.getCabinetWidth() + enterValuePanel.getCabinetDepth()) + 1.4 * enterValuePanel.getCabinetWidth() * enterValuePanel.getCabinetDepth();
-        }if(e.getActionCommand().equals("5")){
+        }else if(e.getActionCommand().equals("5")){
             cabinetSquare = 1.8 * enterValuePanel.getCabinetWidth() * enterValuePanel.getCabinetHeight() + 1.4 * enterValuePanel.getCabinetWidth() * enterValuePanel.getCabinetDepth() + enterValuePanel.getCabinetDepth() * enterValuePanel.getCabinetHeight();
-        }if(e.getActionCommand().equals("6")){
+        }else if(e.getActionCommand().equals("6")){
             cabinetSquare = 1.4 * enterValuePanel.getCabinetWidth() * (enterValuePanel.getCabinetHeight() + enterValuePanel.getCabinetDepth()) + enterValuePanel.getCabinetDepth() * enterValuePanel.getCabinetHeight();
-        }if(e.getActionCommand().equals("7")){
+        }else if(e.getActionCommand().equals("7")){
             cabinetSquare = 1.4 * enterValuePanel.getCabinetWidth() * enterValuePanel.getCabinetHeight() + 0.7 * enterValuePanel.getCabinetWidth() * enterValuePanel.getCabinetDepth() + enterValuePanel.getCabinetDepth() * enterValuePanel.getCabinetHeight();
+        }
+        else{
+            cabinetSquare = 1.8 * enterValuePanel.getCabinetHeight() * (enterValuePanel.getCabinetWidth() + enterValuePanel.getCabinetDepth()) + 1.4 * enterValuePanel.getCabinetWidth() * enterValuePanel.getCabinetDepth();
         }
     }
 }
