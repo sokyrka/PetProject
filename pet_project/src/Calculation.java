@@ -4,16 +4,15 @@ import java.math.*;
  */
 public class Calculation {
     public static final double HEAT_TRANSFER_COEFFICIENT = 5.5;
-    private static double powerResult;
-    private static String result;
+    private double powerResult;
+    private String result;
 
-    public static String getResult(){
+    public String getResult(){
         return result;
     }
 
-    Calculation(){
+    public Calculation(){
         RadioButtonPanel radioButtonPanel = new RadioButtonPanel();
-
         EnterValuePanel enterValuePanel = new EnterValuePanel();
 
         powerResult = enterValuePanel.getDissipationPower() - (HEAT_TRANSFER_COEFFICIENT * radioButtonPanel.getCabinetSquare() *

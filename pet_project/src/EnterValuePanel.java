@@ -1,11 +1,10 @@
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
 /**
  * Created by quattro on 17.12.2014.
  */
-public class EnterValuePanel extends JPanel {
+public class EnterValuePanel extends JPanel{
 
     private static double cabinetWidth;
     private static double cabinetHeight;
@@ -62,188 +61,190 @@ public class EnterValuePanel extends JPanel {
         return dissipationPower;
     }
 
-    EnterValuePanel(){
+    JLabel labelWidth, labelHeight, labelDepth, labelInsideTemperature, labelOutsideTemperature, labelPower;
+    JTextField textFieldWidth, textFieldHeight, textFieldDepth, textFieldInsideTemperature, textFieldOutsideTemperature, textFieldDissipationPower;
+
+    public void makeLabel(JLabel l, String s, Font f){
+        l = new JLabel(s);
+        l.setFont(f);
+        add(l);
+    }
+
+    public EnterValuePanel(){
 
         setPreferredSize(new Dimension(210, 100));
         setLayout(new FlowLayout(FlowLayout.LEFT));
-        //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        //setBorder(new LineBorder(Color.red));
 
-        JLabel labelWidth = new JLabel("Ширина шкафа");
-        labelWidth.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
-        add(labelWidth);
+        Font fontLabel = new Font("ROMAN_BASELINE", Font.BOLD, 16);
+        Font fontTextField = new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16);
 
-        final JTextField textFieldWidth = new JTextField("0", 6);
-        textFieldWidth.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        makeLabel(labelWidth, "Ширина шкафа, м", fontLabel);
+
+        textFieldWidth = new JTextField("0", 6);
+        textFieldWidth.setFont(fontTextField);
         add(textFieldWidth);
 
-        JLabel labelHeight = new JLabel("Высота шкафа");
-        labelHeight.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
-        add(labelHeight);
+        makeLabel(labelHeight, "Высота шкафа, м", fontLabel);
 
-        final JTextField textFieldHeight = new JTextField("0", 6);
-        textFieldHeight.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        textFieldHeight = new JTextField("0", 6);
+        textFieldHeight.setFont(fontTextField);
         add(textFieldHeight);
 
-        JLabel labelDepth = new JLabel("Глубина шкафа");
-        labelDepth.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
-        add(labelDepth);
+        makeLabel(labelDepth, "Глубина шкафа, м", fontLabel);
 
-        final JTextField textFieldDepth = new JTextField("0", 6);
-        textFieldDepth.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        textFieldDepth = new JTextField("0", 6);
+        textFieldDepth.setFont(fontTextField);
         add(textFieldDepth);
 
-        JLabel labelInsideTemperature = new JLabel("Внутренняя температура");
-        labelInsideTemperature.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
-        add(labelInsideTemperature);
+        makeLabel(labelInsideTemperature, "Внутренняя температура", fontLabel);
 
-        final JTextField textFieldInsideTemperature = new JTextField("0", 6);
-        textFieldInsideTemperature.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        textFieldInsideTemperature = new JTextField("0", 6);
+        textFieldInsideTemperature.setFont(fontTextField);
         add(textFieldInsideTemperature);
 
-        JLabel labelOutsideTemperature = new JLabel("Внешняя температура");
-        labelOutsideTemperature.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
-        add(labelOutsideTemperature);
+        makeLabel(labelOutsideTemperature, "Внешняя температура", fontLabel);
 
-        final JTextField textFieldOutsideTemperature = new JTextField("0", 6);
-        textFieldOutsideTemperature.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        textFieldOutsideTemperature = new JTextField("0", 6);
+        textFieldOutsideTemperature.setFont(fontTextField);
         add(textFieldOutsideTemperature);
 
-        JLabel labelPower = new JLabel("Рассеиваемая мощность");
-        labelPower.setFont(new Font("ROMAN_BASELINE", Font.BOLD, 16));
-        add(labelPower);
+        makeLabel(labelPower, "Рассеиваемая мощность", fontLabel);
 
-        final JTextField textFieldDissipationPower = new JTextField("0", 6);
-        textFieldDissipationPower.setFont(new Font("ROMAN_BASELINE", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        textFieldDissipationPower = new JTextField("0", 6);
+        textFieldDissipationPower.setFont(fontTextField);
         add(textFieldDissipationPower);
 
 
-        textFieldWidth.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                textFieldWidth.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if(textFieldWidth.getText().equals("")){
-                    textFieldWidth.setText("0");
+        try{
+            textFieldWidth.addFocusListener(new FocusListener() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    textFieldWidth.setText("");
                 }
-                else{
-                    try{
-                        setCabinetWidth(Double.parseDouble(textFieldWidth.getText()));
-                    }catch (Exception ex){
-                        ex.getStackTrace();
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if (textFieldWidth.getText().equals("")) {
+                        textFieldWidth.setText("0");
+                    } else {
+                        try {
+                            setCabinetWidth(Double.parseDouble(textFieldWidth.getText()));
+                        } catch (Exception ex) {
+                            ex.getStackTrace();
+                        }
+                    }
+
+                }
+            });
+
+            textFieldHeight.addFocusListener(new FocusListener() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    textFieldHeight.setText("");
+                }
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if(textFieldHeight.getText().equals("")) {
+                        textFieldHeight.setText("0");
+                    }
+                    else{
+                        try{
+                            setCabinetHeight(Double.parseDouble(textFieldHeight.getText()));
+                        }catch (Exception ex){
+                            ex.getStackTrace();
+                        }
                     }
                 }
+            });
 
-            }
-        });
-
-        textFieldHeight.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                textFieldHeight.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if(textFieldHeight.getText().equals("")) {
-                    textFieldHeight.setText("0");
+            textFieldDepth.addFocusListener(new FocusListener() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    textFieldDepth.setText("");
                 }
-                else{
-                    try{
-                        setCabinetHeight(Double.parseDouble(textFieldHeight.getText()));
-                    }catch (Exception ex){
-                        ex.getStackTrace();
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if(textFieldDepth.getText().equals("")) {
+                        textFieldDepth.setText("0");
+                    }
+                    else{
+                        try{
+                            setCabinetDepth(Double.parseDouble(textFieldDepth.getText()));
+                        }catch (Exception ex){
+                            ex.getStackTrace();
+                        }
                     }
                 }
-            }
-        });
+            });
 
-        textFieldDepth.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                textFieldDepth.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if(textFieldDepth.getText().equals("")) {
-                    textFieldDepth.setText("0");
+            textFieldInsideTemperature.addFocusListener(new FocusListener() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    textFieldInsideTemperature.setText("");
                 }
-                else{
-                    try{
-                        setCabinetDepth(Double.parseDouble(textFieldDepth.getText()));
-                    }catch (Exception ex){
-                        ex.getStackTrace();
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if(textFieldInsideTemperature.getText().equals("")){
+                        textFieldInsideTemperature.setText("0");
+                    }
+                    else{
+                        try{
+                            setInsideTemperature(Double.parseDouble(textFieldInsideTemperature.getText()));
+                        }catch (Exception ex){
+                            ex.getStackTrace();
+                        }
+                    }
+
+                }
+            });
+
+            textFieldOutsideTemperature.addFocusListener(new FocusListener() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    textFieldOutsideTemperature.setText("");
+                }
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if(textFieldOutsideTemperature.getText().equals("")) {
+                        textFieldOutsideTemperature.setText("0");
+                    }
+                    else{
+                        try{
+                            setOutsideTemperature(Double.parseDouble(textFieldOutsideTemperature.getText()));
+                        }catch (Exception ex){
+                            ex.getStackTrace();
+                        }
                     }
                 }
-            }
-        });
+            });
 
-        textFieldInsideTemperature.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                textFieldInsideTemperature.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if(textFieldInsideTemperature.getText().equals("")){
-                    textFieldInsideTemperature.setText("0");
+            textFieldDissipationPower.addFocusListener(new FocusListener() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    textFieldDissipationPower.setText("");
                 }
-                else{
-                    try{
-                        setInsideTemperature(Double.parseDouble(textFieldInsideTemperature.getText()));
-                    }catch (Exception ex){
-                        ex.getStackTrace();
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if(textFieldDissipationPower.getText().equals("")) {
+                        textFieldDissipationPower.setText("0");
+                    }
+                    else{
+                        try{
+                            setDissipationPower(Double.parseDouble(textFieldDissipationPower.getText()));
+                        }catch (Exception ex){
+                            ex.getStackTrace();
+                        }
                     }
                 }
-
-            }
-        });
-
-        textFieldOutsideTemperature.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                textFieldOutsideTemperature.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if(textFieldOutsideTemperature.getText().equals("")) {
-                    textFieldOutsideTemperature.setText("0");
-                }
-                else{
-                    try{
-                        setOutsideTemperature(Double.parseDouble(textFieldOutsideTemperature.getText()));
-                    }catch (Exception ex){
-                        ex.getStackTrace();
-                    }
-                }
-            }
-        });
-
-        textFieldDissipationPower.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                textFieldDissipationPower.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if(textFieldDissipationPower.getText().equals("")) {
-                    textFieldDissipationPower.setText("0");
-                }
-                else{
-                    try{
-                        setDissipationPower(Double.parseDouble(textFieldDissipationPower.getText()));
-                    }catch (Exception ex){
-                        ex.getStackTrace();
-                    }
-                }
-            }
-        });
+            });
+        }
+        catch (NullPointerException ex){
+            ex.printStackTrace();
+        }
     }
 }
