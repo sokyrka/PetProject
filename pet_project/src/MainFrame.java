@@ -3,13 +3,16 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 /**
  * Created by quattro on 10.12.2014.
  */
-public class Frame extends JFrame {
+public class MainFrame extends JFrame {
     JTextArea textArea;
-    Frame() {
+
+    MainFrame() {
         super("Cooling master");
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(650, 480);
         setResizable(false);

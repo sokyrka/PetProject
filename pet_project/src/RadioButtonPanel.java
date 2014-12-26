@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 /**
  * Created by quattro on 18.12.2014.
  */
@@ -18,7 +20,7 @@ public class RadioButtonPanel extends JPanel implements ActionListener {
 
     JLabel firstСhoiceLabel, secondСhoiceLabel, thirdСhoiceLabel, fourthСhoiceLabel, fifthСhoiceLabel, sixthСhoiceLabel, seventhСhoiceLabel;
 
-    public RadioButtonPanel(){
+    RadioButtonPanel(){
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -64,25 +66,28 @@ public class RadioButtonPanel extends JPanel implements ActionListener {
 
         makeLabel(seventhСhoiceLabel, new ImageIcon("img/seventhСhoiceImg.png"));
 
-        ButtonGroup group = new ButtonGroup();
-        group.add(firstСhoiceButton);
-        group.add(secondСhoiceButton);
-        group.add(thirdСhoiceButton);
-        group.add(fourthСhoiceButton);
-        group.add(fifthСhoiceButton);
-        group.add(sixthСhoiceButton);
-        group.add(seventhСhoiceButton);
+        ArrayList<JRadioButton> arrayList = new ArrayList<JRadioButton>();
+        arrayList.add(firstСhoiceButton);
+        arrayList.add(secondСhoiceButton);
+        arrayList.add(thirdСhoiceButton);
+        arrayList.add(fourthСhoiceButton);
+        arrayList.add(fifthСhoiceButton);
+        arrayList.add(sixthСhoiceButton);
+        arrayList.add(seventhСhoiceButton);
 
-        firstСhoiceButton.addActionListener(this);
-        secondСhoiceButton.addActionListener(this);
-        thirdСhoiceButton.addActionListener(this);
-        fourthСhoiceButton.addActionListener(this);
-        fifthСhoiceButton.addActionListener(this);
-        sixthСhoiceButton.addActionListener(this);
-        seventhСhoiceButton.addActionListener(this);
+        ButtonGroup group = new ButtonGroup();
+        for(int i = 0; i<arrayList.size(); i++){
+            group.add(arrayList.get(i));
+        }
+
+        for(int k = 0; k< arrayList.size(); k++){
+            arrayList.get(k).addActionListener(this);
+        }
+
     }
 
     EnterValuePanel enterValuePanel = new EnterValuePanel();
+
 
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("1")){

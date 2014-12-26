@@ -1,4 +1,5 @@
 import java.math.*;
+
 /**
  * Created by quattro on 18.12.2014.
  */
@@ -11,7 +12,7 @@ public class Calculation {
         return result;
     }
 
-    public Calculation(){
+    Calculation(){
         RadioButtonPanel radioButtonPanel = new RadioButtonPanel();
         EnterValuePanel enterValuePanel = new EnterValuePanel();
 

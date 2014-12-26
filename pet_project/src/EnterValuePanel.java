@@ -4,7 +4,7 @@ import java.awt.event.*;
 /**
  * Created by quattro on 17.12.2014.
  */
-public class EnterValuePanel extends JPanel{
+public class EnterValuePanel extends JPanel {
 
     private static double cabinetWidth;
     private static double cabinetHeight;
@@ -70,7 +70,7 @@ public class EnterValuePanel extends JPanel{
         add(l);
     }
 
-    public EnterValuePanel(){
+    EnterValuePanel(){
 
         setPreferredSize(new Dimension(210, 100));
         setLayout(new FlowLayout(FlowLayout.LEFT));

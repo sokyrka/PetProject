@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 /**
  * Created by quattro on 25.12.2014.
  */
@@ -10,40 +11,37 @@ public class MenuBarPanel extends JMenuBar {
         JMenu menuHelp = new JMenu("Посмотреть справку");
         add(menuHelp);
 
-        JMenuItem menuItemTheory =  new JMenuItem("Теория");
+        JMenuItem menuItemTheory =  new JMenuItem("Теория рассчета");
+        menuHelp.add(menuItemTheory);
         menuItemTheory.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame jFrame = new JFrame("Theory");
-                jFrame.setSize(500, 300);
-                jFrame.setLocationRelativeTo(null);
-                jFrame.setResizable(false);
-                jFrame.setVisible(true);
+                FrameTheory frameTheory = new FrameTheory();
             }
         });
-        menuHelp.add(menuItemTheory);
 
         JMenuItem menuItemAbout = new JMenuItem("О программе");
+        menuHelp.add(menuItemAbout);
         menuItemAbout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame jFrame = new JFrame("About");
-                jFrame.setSize(500, 300);
-                jFrame.setLocationRelativeTo(null);
-                jFrame.setResizable(false);
-                jFrame.setVisible(true);
+                FrameAbout frameAbout = new FrameAbout();
             }
         });
-        menuHelp.add(menuItemAbout);
+
         menuHelp.addSeparator();
+
         JMenuItem menuItemExit = new JMenuItem("Выход");
+        menuHelp.add(menuItemExit);
         menuItemExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                System.exit(0);
             }
         });
-        menuHelp.add(menuItemExit);
+
+
+
 
 
     }
