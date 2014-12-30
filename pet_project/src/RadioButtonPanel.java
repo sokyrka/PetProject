@@ -19,48 +19,48 @@ public class RadioButtonPanel extends JPanel implements ActionListener {
     }
 
     JLabel firstСhoiceLabel, secondСhoiceLabel, thirdСhoiceLabel, fourthСhoiceLabel, fifthСhoiceLabel, sixthСhoiceLabel, seventhСhoiceLabel;
-
+    static JRadioButton firstСhoiceButton, secondСhoiceButton, thirdСhoiceButton, fourthСhoiceButton, fifthСhoiceButton, sixthСhoiceButton, seventhСhoiceButton;
     RadioButtonPanel(){
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        JRadioButton firstСhoiceButton = new JRadioButton("Один шкаф, свободно стоящий");
+        firstСhoiceButton = new JRadioButton("Один шкаф, свободно стоящий");
         add(firstСhoiceButton);
         firstСhoiceButton.setActionCommand("1");
 
         makeLabel(firstСhoiceLabel, new ImageIcon("img/firstСhoiceImg.png"));
 
-        JRadioButton secondСhoiceButton = new JRadioButton("Один шкаф, монтируемый на стену");
+        secondСhoiceButton = new JRadioButton("Один шкаф, монтируемый на стену");
         add(secondСhoiceButton);
         secondСhoiceButton.setActionCommand("2");
 
         makeLabel(secondСhoiceLabel, new ImageIcon("img/secondСhoiceImg.png"));
 
-        JRadioButton thirdСhoiceButton = new JRadioButton("Крайний шкаф свободно стоящего ряда");
+        thirdСhoiceButton = new JRadioButton("Крайний шкаф свободно стоящего ряда");
         add(thirdСhoiceButton);
         thirdСhoiceButton.setActionCommand("3");
 
         makeLabel(thirdСhoiceLabel, new ImageIcon("img/thirdСhoiceImg.png"));
 
-        JRadioButton fourthСhoiceButton = new JRadioButton("Крайний шкаф в ряду, монтируемом на стену");
+        fourthСhoiceButton = new JRadioButton("Крайний шкаф в ряду, монтируемом на стену");
         add(fourthСhoiceButton);
         fourthСhoiceButton.setActionCommand("4");
 
         makeLabel(fourthСhoiceLabel, new ImageIcon("img/fourthСhoiceImg.png"));
 
-        JRadioButton fifthСhoiceButton = new JRadioButton("Не крайний шкаф свободно стоящего ряда");
+        fifthСhoiceButton = new JRadioButton("Не крайний шкаф свободно стоящего ряда");
         add(fifthСhoiceButton);
         fifthСhoiceButton.setActionCommand("5");
 
         makeLabel(fifthСhoiceLabel, new ImageIcon("img/fifthСhoiceImg.png"));
 
-        JRadioButton sixthСhoiceButton = new JRadioButton("Не крайний шкаф в ряду, монтируемом на стену");
+        sixthСhoiceButton = new JRadioButton("Не крайний шкаф в ряду, монтируемом на стену");
         add(sixthСhoiceButton);
         sixthСhoiceButton.setActionCommand("6");
 
         makeLabel(sixthСhoiceLabel, new ImageIcon("img/sixthСhoiceImg.png"));
 
-        JRadioButton seventhСhoiceButton = new JRadioButton("Не крайний шкаф в ряду, монтируемом на стену, под козырьком");
+        seventhСhoiceButton = new JRadioButton("Не крайний шкаф в ряду, монтируемом на стену, под козырьком");
         add(seventhСhoiceButton);
         seventhСhoiceButton.setActionCommand("7");
 

@@ -11,24 +11,28 @@ public class Calculation {
     public String getResult(){
         return result;
     }
+    public void setResult(String s){
+        this.result = s;
+    }
 
     Calculation(){
+
         RadioButtonPanel radioButtonPanel = new RadioButtonPanel();
         EnterValuePanel enterValuePanel = new EnterValuePanel();
 
         powerResult = enterValuePanel.getDissipationPower() - (HEAT_TRANSFER_COEFFICIENT * radioButtonPanel.getCabinetSquare() *
-                (enterValuePanel.getInsideTemperature() - enterValuePanel.getOutsideTemperature()));
+                    (enterValuePanel.getInsideTemperature() - enterValuePanel.getOutsideTemperature()));
 
         powerResult = new BigDecimal(powerResult).setScale(1, RoundingMode.UP).doubleValue();
 
         if(powerResult > 0){
-            result = "Холодильный агрегат мощностью: " + Double.toString(powerResult) + " Вт";
+            setResult("Холодильный агрегат мощностью: " + Double.toString(powerResult) + " Вт");
         }
         else if(powerResult < 0){
-            result = "Обогревательный агрегат мощностью: " + Double.toString(Math.abs(powerResult)) + " Вт";
+            setResult("Обогревательный агрегат мощностью: " + Double.toString(Math.abs(powerResult)) + " Вт");
         }
         else{
-            result = "0.0";
+            setResult("0.0");
         }
     }
 }

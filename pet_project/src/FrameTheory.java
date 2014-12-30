@@ -10,5 +10,7 @@ public class FrameTheory extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+        ImageIcon img = new ImageIcon("img/cooling_icon.png");
+        setIconImage(img.getImage());
     }
 }
