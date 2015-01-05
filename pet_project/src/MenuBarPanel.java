@@ -11,7 +11,7 @@ public class MenuBarPanel extends JMenuBar {
         JMenu menuHelp = new JMenu("Посмотреть справку");
         add(menuHelp);
 
-        JMenuItem menuItemTheory =  new JMenuItem("Теория рассчета");
+        JMenuItem menuItemTheory =  new JMenuItem("Теория расчета");
         menuHelp.add(menuItemTheory);
         menuItemTheory.addActionListener(new ActionListener() {
             @Override

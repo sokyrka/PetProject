@@ -11,14 +11,14 @@ public class MainFrame extends JFrame {
     JTextArea textArea;
 
     MainFrame() {
-        super("Cooling master");
+        super("Cooling Master");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(650, 480);
         setResizable(false);
         setLocationRelativeTo(null);
 
-        ImageIcon img = new ImageIcon("img/cooling_icon.png");
+        ImageIcon img = new ImageIcon(getClass().getResource("img/cooling_icon.png"));
         setIconImage(img.getImage());
 
         MenuBarPanel menuBar = new MenuBarPanel();
