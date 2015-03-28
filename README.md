@@ -13,6 +13,8 @@ To calculate, follow the eight steps:
 7. Select the location of the cabinet;
 8. Finally press the "Calculate" button.
 
-
+![Alt text](https://www.dropbox.com/s/2mi9ug7ykqmg3f4/cooling1.png?dl=0?raw=true)
 
 Now you get the results that show the power of the cooling or heating equipment, which can be installed in a cabinet.
+
+![Alt text](https://www.dropbox.com/s/3kmhh8dleue6jda/cooling2.png?dl=0?raw=true)
